@@ -2,11 +2,14 @@ import { createContext, useContext, useState } from 'react';
 import { baseUrl } from '../services/baseUrl';
 import axios from 'axios';
 import { get } from '../services/authService';
+import { useNavigate } from 'react-router-dom';
 
 const AuthContext = createContext();
 
 const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
+
+  const navigate = useNavigate();
 
   const storeToken = (token) => {
     localStorage.setItem('authToken', token);
@@ -38,11 +41,12 @@ const AuthProvider = ({ children }) => {
   const logOutUser = () => {
     removeToken();
     authenticateUser();
+    navigate('/');
   };
 
   return (
     <AuthContext.Provider
-      value={{ storeToken, authenticateUser, logOutUser, setUser }}
+      value={{ storeToken, authenticateUser, logOutUser, setUser, user }}
     >
       {children}
     </AuthContext.Provider>
