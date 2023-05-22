@@ -6,6 +6,7 @@ const LoadingContext = createContext();
 const LoadingProvider = ({ children }) => {
   const [stores, setStores] = useState([]);
   const [currentStore, setCurrentStore] = useState({});
+  const [user, setUser] = useState(null);
 
   const getStores = () => {
     axios

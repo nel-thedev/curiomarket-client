@@ -1,8 +1,41 @@
-import logo from './logo.svg';
+import { Navigate, Outlet, Route, Routes } from 'react-router-dom';
 import './App.css';
+import Navbar from './components/Navbar';
+import Home from './pages/Home';
+import Profile from './pages/Profile';
+import AllStores from './pages/AllStores';
+import Store from './pages/Store';
+import Item from './pages/Item';
+import Signup from './pages/Signup';
+import Login from './pages/Login';
 
 function App() {
-  return <div className="App"></div>;
+  const getToken = () => {
+    return localStorage.getItem('authToken');
+  };
+
+  const LoggedIn = () => {
+    return getToken() ? <Outlet /> : <Navigate to="/" />;
+  };
+
+  const NotLoggedIn = () => {
+    return !getToken() ? <Outlet /> : <Navigate to="/" />;
+  };
+
+  return (
+    <div className="App">
+      <Navbar />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/store/all" element={<AllStores />} />
+        <Route path="/store/shop/:storeId" element={<Store />} />
+        <Route path="/item/details/:itemId" element={<Item />} />
+        <Route path="/profile" element={<Profile />} />
+        <Route path="/auth/signup" element={<Signup />} />
+        <Route path="/auth/login" element={<Login />} />
+      </Routes>
+    </div>
+  );
 }
 
 export default App;
