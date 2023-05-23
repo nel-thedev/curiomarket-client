@@ -27,7 +27,7 @@ const Signup = () => {
         console.log('CREATED USER', result);
         setUser({ ...result.data.user, profilePicture: '' });
         storeToken(result.data.authToken);
-        // navigate('/profile');
+        navigate('/profile');
       })
       .catch((err) => {
         console.log(err);

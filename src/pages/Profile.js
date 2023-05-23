@@ -1,14 +1,15 @@
 import { useContext, useEffect } from 'react';
 import { AuthContext } from '../context/auth';
 import StoreCard from '../components/StoreCard';
+import { Link } from 'react-router-dom';
 
 const Profile = () => {
   const { user, authenticateUser } = useContext(AuthContext);
   console.log(user);
 
-  useEffect(() => {
-    authenticateUser();
-  }, []);
+  // useEffect(() => {
+  //   authenticateUser();
+  // }, []);
 
   return (
     <>
@@ -17,11 +18,21 @@ const Profile = () => {
           <h3>My Profile</h3>
           <img src={user.profilePicture} alt={user.fullName} />
           <h1>{user.fullName}</h1>
+          <Link to={'/user/update'}>Edit user</Link>
           <div>
             <h2>{user.fullName}'s Stores:</h2>
-            {user.stores.map((store) => {
-              return <StoreCard store={store} />;
-            })}
+            {user.stores ? (
+              user.stores.map((store) => {
+                return <StoreCard store={store} />;
+              })
+            ) : (
+              <p>No stores...</p>
+            )}
+            <Link to={'/store/create'}>
+              <div>
+                <p>Add store</p>
+              </div>
+            </Link>
           </div>
         </>
       ) : (
