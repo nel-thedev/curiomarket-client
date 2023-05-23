@@ -8,6 +8,9 @@ import Store from './pages/Store';
 import Item from './pages/Item';
 import Signup from './pages/Signup';
 import Login from './pages/Login';
+import UpdateProfile from './pages/UpdateProfile';
+import CreateStore from './pages/CreateStore';
+import EditStore from './pages/EditStore';
 
 function App() {
   const getToken = () => {
@@ -33,6 +36,9 @@ function App() {
         <Route path="/profile" element={<Profile />} />
         <Route path="/auth/signup" element={<Signup />} />
         <Route path="/auth/login" element={<Login />} />
+        <Route path="/user/update" element={<UpdateProfile />} />
+        <Route path="/store/create" element={<CreateStore />} />
+        <Route path="/store/edit" element={<EditStore />} />
       </Routes>
     </div>
   );

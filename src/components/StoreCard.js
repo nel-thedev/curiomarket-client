@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 const StoreCard = ({ store }) => {
   // let avgRating;
-
+  console.log(store);
   const returnRating = () => {
     if (store.ratings.length) {
       return (
@@ -20,7 +20,7 @@ const StoreCard = ({ store }) => {
     <div>
       {store ? (
         <Link to={`/store/shop/${store._id}`}>
-          <img src={store.imageUrl} alt={store.name} />
+          <img src={store.storeImage} alt={store.name} />
           <h4>{store.name}</h4>
           <div>
             <p>Rating: {returnRating()}</p>

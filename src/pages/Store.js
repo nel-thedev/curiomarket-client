@@ -1,11 +1,13 @@
 import { useContext, useEffect } from 'react';
 import { LoadingContext } from '../context/loading';
 import axios from 'axios';
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import ItemCard from '../components/ItemCard';
+import { AuthContext } from '../context/auth';
 
 const Store = () => {
   const { currentStore, getCurrentStore } = useContext(LoadingContext);
+  const { user } = useContext(AuthContext);
 
   const { storeId } = useParams();
   console.log(storeId);
@@ -19,9 +21,17 @@ const Store = () => {
     <>
       {currentStore._id ? (
         <>
+          <img src={currentStore.storeImage} alt={currentStore.name} />
           <h1>{currentStore.name}</h1>
           <p>{currentStore.ratings}</p>
           <p>{currentStore.description}</p>
+          {currentStore.owner === user._id ? (
+            <Link to={'/store/edit'} storeId={storeId}>
+              Edit
+            </Link>
+          ) : (
+            <p>FAIL</p>
+          )}
           <hr />
           <div>
             {currentStore.items.map((item) => {

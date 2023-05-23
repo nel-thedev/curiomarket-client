@@ -30,7 +30,13 @@ const LoadingProvider = ({ children }) => {
 
   return (
     <LoadingContext.Provider
-      value={{ getStores, stores, currentStore, getCurrentStore }}
+      value={{
+        getStores,
+        stores,
+        currentStore,
+        getCurrentStore,
+        setCurrentStore,
+      }}
     >
       {children}
     </LoadingContext.Provider>
