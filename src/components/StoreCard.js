@@ -2,25 +2,34 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 const StoreCard = ({ store }) => {
-  let avgRating;
+  // let avgRating;
 
-  if (store.length) {
-    avgRating =
-      store.ratings.reduce((acc, curr) => {
-        return acc + curr;
-      }, 0) / store.ratings.length;
-  }
+  const returnRating = () => {
+    if (store.ratings.length) {
+      return (
+        store.ratings.reduce((acc, curr) => {
+          return acc + curr;
+        }, 0) / store.ratings.length
+      );
+    } else {
+      return 0;
+    }
+  };
 
   return (
     <div>
-      <Link to={`/store/shop/${store._id}`}>
-        <img src={store.imageUrl} alt={store.name} />
-        <h4>{store.name}</h4>
-        <div>
-          <p>{avgRating}</p>
-          <p>{store.items.length}</p>
-        </div>
-      </Link>
+      {store ? (
+        <Link to={`/store/shop/${store._id}`}>
+          <img src={store.imageUrl} alt={store.name} />
+          <h4>{store.name}</h4>
+          <div>
+            <p>Rating: {returnRating()}</p>
+            <p>{store.items.length}</p>
+          </div>
+        </Link>
+      ) : (
+        <p>Loading...</p>
+      )}
     </div>
   );
 };

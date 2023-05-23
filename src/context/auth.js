@@ -1,4 +1,4 @@
-import { createContext, useContext, useState } from 'react';
+import { createContext, useContext, useEffect, useState } from 'react';
 import { baseUrl } from '../services/baseUrl';
 import axios from 'axios';
 import { get } from '../services/authService';
@@ -43,6 +43,10 @@ const AuthProvider = ({ children }) => {
     authenticateUser();
     navigate('/');
   };
+
+  useEffect(() => {
+    authenticateUser();
+  }, []);
 
   return (
     <AuthContext.Provider
