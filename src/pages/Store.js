@@ -37,7 +37,9 @@ const Store = () => {
             {currentStore.items.map((item) => {
               return <ItemCard item={item} key={item._id} />;
             })}
-            <div>New Item</div>
+            <Link to={`/store/shop/${storeId}/create-item`} storeId={storeId}>
+              <div>New Item</div>
+            </Link>
           </div>
         </>
       ) : (

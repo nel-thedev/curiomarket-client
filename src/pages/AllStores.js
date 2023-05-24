@@ -10,7 +10,7 @@ const AllStores = () => {
     if (!stores.length) {
       getStores();
     }
-  }, []);
+  }, [stores]);
 
   return (
     <>

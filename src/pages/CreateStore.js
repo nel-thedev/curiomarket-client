@@ -1,9 +1,13 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import { post } from '../services/authService';
 import { fileChange } from '../services/fileChange';
 import { useNavigate } from 'react-router-dom';
+import { LoadingContext } from '../context/loading';
+import { AuthContext } from '../context/auth';
 
 const CreateStore = () => {
+  const { currentStore, setCurrentStore } = useContext(LoadingContext);
+  const { user, setUser, authenticateUser } = useContext(AuthContext);
   const [errorMsg, setErrorMsg] = useState(null);
   const [createdStore, setCreatedStore] = useState({
     name: '',
@@ -33,13 +37,17 @@ const CreateStore = () => {
       });
   };
 
+  console.log(createdStore);
+
   const handleSubmit = (e) => {
     e.preventDefault();
 
     post('/store/create', createdStore)
       .then((results) => {
         console.log('CREATE STORE RESULTS', results.data);
-        navigate(`/shop/${results.data._id}`);
+        setCurrentStore(createdStore);
+        setUser(results.data.updatedUser);
+        navigate(`/store/shop/${results.data.createdStore._id}`);
       })
       .catch((err) => {
         console.log(err);

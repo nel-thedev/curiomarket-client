@@ -32,6 +32,7 @@ const AuthProvider = ({ children }) => {
         .catch((error) => {
           setUser(null);
           removeToken();
+          navigate('/auth/login');
         });
     } else {
       setUser(null);

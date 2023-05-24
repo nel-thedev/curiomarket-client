@@ -10,6 +10,7 @@ const Profile = () => {
   // useEffect(() => {
   //   authenticateUser();
   // }, []);
+  console.log(user.stores);
 
   return (
     <>
@@ -23,6 +24,7 @@ const Profile = () => {
             <h2>{user.fullName}'s Stores:</h2>
             {user.stores ? (
               user.stores.map((store) => {
+                console.log(user, store);
                 return <StoreCard store={store} />;
               })
             ) : (

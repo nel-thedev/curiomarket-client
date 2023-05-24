@@ -4,17 +4,17 @@ import { Link } from 'react-router-dom';
 const StoreCard = ({ store }) => {
   // let avgRating;
   console.log(store);
-  const returnRating = () => {
-    if (store.ratings.length) {
-      return (
-        store.ratings.reduce((acc, curr) => {
-          return acc + curr;
-        }, 0) / store.ratings.length
-      );
-    } else {
-      return 0;
-    }
-  };
+  // const returnRating = () => {
+  //   if (store.ratings.length) {
+  //     return (
+  //       store.ratings.reduce((acc, curr) => {
+  //         return acc + curr;
+  //       }, 0) / store.ratings.length
+  //     );
+  //   } else {
+  //     return 0;
+  //   }
+  // };
 
   return (
     <div>
@@ -23,8 +23,8 @@ const StoreCard = ({ store }) => {
           <img src={store.storeImage} alt={store.name} />
           <h4>{store.name}</h4>
           <div>
-            <p>Rating: {returnRating()}</p>
-            <p>{store.items.length}</p>
+            {/* <p>Rating: {returnRating()}</p> */}
+            {store?.items.length > 0 ? <p>{store?.items.length}</p> : <p>0</p>}
           </div>
         </Link>
       ) : (

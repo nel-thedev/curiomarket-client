@@ -11,6 +11,7 @@ import Login from './pages/Login';
 import UpdateProfile from './pages/UpdateProfile';
 import CreateStore from './pages/CreateStore';
 import EditStore from './pages/EditStore';
+import CreateItem from './pages/CreateItem';
 
 function App() {
   const getToken = () => {
@@ -39,6 +40,10 @@ function App() {
         <Route path="/user/update" element={<UpdateProfile />} />
         <Route path="/store/create" element={<CreateStore />} />
         <Route path="/store/edit" element={<EditStore />} />
+        <Route
+          path="/store/shop/:storeId/create-item"
+          element={<CreateItem />}
+        />
       </Routes>
     </div>
   );
