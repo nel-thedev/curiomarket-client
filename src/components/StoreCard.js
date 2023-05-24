@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import storeImg from '../assets/store.png';
 
 const StoreCard = ({ store }) => {
   // let avgRating;
@@ -20,7 +21,11 @@ const StoreCard = ({ store }) => {
     <div>
       {store ? (
         <Link to={`/store/shop/${store._id}`}>
-          <img src={store.storeImage} alt={store.name} />
+          <img
+            src={store.storeImage || storeImg}
+            alt={store.name}
+            className="store-img"
+          />
           <h4>{store.name}</h4>
           <div>
             {/* <p>Rating: {returnRating()}</p> */}

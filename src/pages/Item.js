@@ -5,6 +5,7 @@ import Comment from '../components/Comment';
 import { CartContext } from '../context/cart';
 import { AuthContext } from '../context/auth';
 import { get } from '../services/authService';
+import box from '../assets/box.png';
 
 const Item = () => {
   const { addToCart } = useContext(CartContext);
@@ -35,15 +36,15 @@ const Item = () => {
           console.log(result.data);
         });
     } catch (error) {
-      return console.log(error);
+      console.log(error);
     }
-  }, []);
+  }, [itemId]);
 
   return (
     <>
       {currentItem._id ? (
         <>
-          <img src={currentItem.imageUrl} alt={currentItem.name} />
+          <img src={currentItem.imageUrl || box} alt={currentItem.name} />
 
           <h1>{currentItem.name}</h1>
 
@@ -51,7 +52,7 @@ const Item = () => {
             {currentItem.isForSale ? <p>{currentItem.quantity}</p> : <p>NFS</p>}
             <p>{currentItem.value}</p>
           </div>
-          {currentItem.owner === user._id ? (
+          {currentItem.owner === user?._id ? (
             <button onClick={deleteItem}>Delete item</button>
           ) : (
             <button onClick={handleClickCart}>Add to cart</button>

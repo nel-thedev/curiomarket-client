@@ -4,6 +4,7 @@ import axios from 'axios';
 import { Link, useParams } from 'react-router-dom';
 import ItemCard from '../components/ItemCard';
 import { AuthContext } from '../context/auth';
+import storeImg from '../assets/store.png';
 
 const Store = () => {
   const { currentStore, getCurrentStore } = useContext(LoadingContext);
@@ -21,11 +22,14 @@ const Store = () => {
     <>
       {currentStore._id ? (
         <>
-          <img src={currentStore.storeImage} alt={currentStore.name} />
+          <img
+            src={currentStore.storeImage || storeImg}
+            alt={currentStore.name}
+          />
           <h1>{currentStore.name}</h1>
           <p>{currentStore.ratings}</p>
           <p>{currentStore.description}</p>
-          {currentStore.owner === user._id ? (
+          {currentStore.owner === user?._id ? (
             <Link to={'/store/edit'} storeId={storeId}>
               Edit
             </Link>
