@@ -6,12 +6,18 @@ const CartContext = createContext();
 const CartProvider = ({ children }) => {
   if (localStorage.shoppingCart) {
   }
-  const [cart, setCart] = useState([]);
+  const [cart, setCart] = useState(() => {
+    const storedCart = localStorage.getItem('shoppingCart');
+    return storedCart ? JSON.parse(storedCart) : [];
+  });
 
-  const addToCart = async (item) => {
-    await setCart((prev) => [...prev, item]);
-    console.log('CART', cart, localStorage);
-    storeCart(cart);
+  // Add item to the cart
+  const addToCart = (item) => {
+    setCart((prevCart) => {
+      const newCart = [...prevCart, item];
+      storeCart(newCart);
+      return newCart;
+    });
   };
 
   const clearCart = () => {
@@ -19,13 +25,15 @@ const CartProvider = ({ children }) => {
     localStorage.removeItem('shoppingCart');
   };
 
+  // Store the cart in localStorage
   const storeCart = (cart) => {
-    localStorage.setItem('shoppingCart', cart);
+    localStorage.setItem('shoppingCart', JSON.stringify(cart));
   };
 
-  //   useEffect(() => {
-  //     setCart(localStorage.shoppingCart);
-  //   }, []);
+  // Update localStorage when the cart changes
+  useEffect(() => {
+    storeCart(cart);
+  }, [cart]);
 
   return (
     <CartContext.Provider
