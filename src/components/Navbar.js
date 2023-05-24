@@ -19,7 +19,9 @@ const Navbar = () => {
         {getToken() ? (
           <div>
             <Link to="/profile">Profile</Link>
-            <Link onClick={logOutUser}>Log Out</Link>
+            <Link onClick={logOutUser} to={'/'}>
+              Log Out
+            </Link>
           </div>
         ) : (
           <div>

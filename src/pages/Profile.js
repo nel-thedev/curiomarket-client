@@ -10,7 +10,7 @@ const Profile = () => {
   // useEffect(() => {
   //   authenticateUser();
   // }, []);
-  console.log(user.stores);
+  // console.log(user.stores);
 
   return (
     <>
