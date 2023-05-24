@@ -1,9 +1,11 @@
 import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../context/auth';
+import { CartContext } from '../context/cart';
 
 const Navbar = () => {
   const { logOutUser } = useContext(AuthContext);
+  const { cart } = useContext(CartContext);
 
   const getToken = () => {
     return localStorage.getItem('authToken');
@@ -21,6 +23,9 @@ const Navbar = () => {
             <Link to="/profile">Profile</Link>
             <Link onClick={logOutUser} to={'/'}>
               Log Out
+            </Link>
+            <Link to={'/cart'}>
+              <p>Cart: {cart.length}</p>
             </Link>
           </div>
         ) : (

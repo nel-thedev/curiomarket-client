@@ -12,6 +12,7 @@ import UpdateProfile from './pages/UpdateProfile';
 import CreateStore from './pages/CreateStore';
 import EditStore from './pages/EditStore';
 import CreateItem from './pages/CreateItem';
+import SeeCart from './pages/SeeCart';
 
 function App() {
   const getToken = () => {
@@ -44,6 +45,7 @@ function App() {
           path="/store/shop/:storeId/create-item"
           element={<CreateItem />}
         />
+        <Route path="/cart" element={<SeeCart />} />
       </Routes>
     </div>
   );

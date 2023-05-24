@@ -1,13 +1,30 @@
 import axios from 'axios';
-import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import React, { useEffect, useState, useContext } from 'react';
+import { useNavigate, useParams } from 'react-router-dom';
 import Comment from '../components/Comment';
+import { CartContext } from '../context/cart';
+import { AuthContext } from '../context/auth';
+import { get } from '../services/authService';
 
 const Item = () => {
+  const { addToCart } = useContext(CartContext);
+  const { user } = useContext(AuthContext);
   const { itemId } = useParams();
   const [currentItem, setCurrentItem] = useState({});
+  const navigate = useNavigate();
 
   console.log(itemId);
+
+  const handleClickCart = () => {
+    addToCart(currentItem);
+  };
+
+  const deleteItem = () => {
+    get(`/item/delete/${itemId}`).then((result) => {
+      console.log(result);
+      navigate(`/store/shop/${result.data.store}`);
+    });
+  };
 
   useEffect(() => {
     try {
@@ -20,7 +37,7 @@ const Item = () => {
     } catch (error) {
       return console.log(error);
     }
-  }, [itemId]);
+  }, []);
 
   return (
     <>
@@ -34,6 +51,11 @@ const Item = () => {
             {currentItem.isForSale ? <p>{currentItem.quantity}</p> : <p>NFS</p>}
             <p>{currentItem.value}</p>
           </div>
+          {currentItem.owner === user._id ? (
+            <button onClick={deleteItem}>Delete item</button>
+          ) : (
+            <button onClick={handleClickCart}>Add to cart</button>
+          )}
           <p>{currentItem.description}</p>
           <hr />
           {currentItem.comments.map((comment) => {
