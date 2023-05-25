@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
 import { CartContext } from '../context/cart';
 import ItemCard from '../components/ItemCard';
+import { Link } from 'react-router-dom';
 
 const SeeCart = () => {
   const { cart, clearCart } = useContext(CartContext);
@@ -34,6 +35,10 @@ const SeeCart = () => {
           <p>Subtotal:</p>
           <p>{subtotal}</p>
         </div>
+
+        <Link to={'/checkout'}>
+          <button>Checkout</button>
+        </Link>
       </div>
     </>
   );

@@ -13,6 +13,7 @@ import CreateStore from './pages/CreateStore';
 import EditStore from './pages/EditStore';
 import CreateItem from './pages/CreateItem';
 import SeeCart from './pages/SeeCart';
+import Checkout from './pages/OrderPreview';
 
 function App() {
   const getToken = () => {
@@ -47,6 +48,7 @@ function App() {
             element={<CreateItem />}
           />
           <Route path="/cart" element={<SeeCart />} />
+          <Route path="/checkout" element={<Checkout />} />
         </Routes>
       </div>
     </div>
