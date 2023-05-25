@@ -30,23 +30,25 @@ function App() {
   return (
     <div className="App">
       <Navbar />
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/store/all" element={<AllStores />} />
-        <Route path="/store/shop/:storeId" element={<Store />} />
-        <Route path="/item/details/:itemId" element={<Item />} />
-        <Route path="/profile" element={<Profile />} />
-        <Route path="/auth/signup" element={<Signup />} />
-        <Route path="/auth/login" element={<Login />} />
-        <Route path="/user/update" element={<UpdateProfile />} />
-        <Route path="/store/create" element={<CreateStore />} />
-        <Route path="/store/edit" element={<EditStore />} />
-        <Route
-          path="/store/shop/:storeId/create-item"
-          element={<CreateItem />}
-        />
-        <Route path="/cart" element={<SeeCart />} />
-      </Routes>
+      <div className="">
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/store/all" element={<AllStores />} />
+          <Route path="/store/shop/:storeId" element={<Store />} />
+          <Route path="/item/details/:itemId" element={<Item />} />
+          <Route path="/profile" element={<Profile />} />
+          <Route path="/auth/signup" element={<Signup />} />
+          <Route path="/auth/login" element={<Login />} />
+          <Route path="/user/update" element={<UpdateProfile />} />
+          <Route path="/store/create" element={<CreateStore />} />
+          <Route path="/store/edit" element={<EditStore />} />
+          <Route
+            path="/store/shop/:storeId/create-item"
+            element={<CreateItem />}
+          />
+          <Route path="/cart" element={<SeeCart />} />
+        </Routes>
+      </div>
     </div>
   );
 }
