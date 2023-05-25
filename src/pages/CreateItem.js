@@ -44,6 +44,7 @@ const CreateItem = ({ storeId }) => {
   const handleFileChange = (e) => {
     fileChange(e)
       .then((response) => {
+        console.log('RESPONSEDATA', response.data);
         setNewItem((prev) => ({
           ...prev,
           [e.target.name]: response.data.image,
