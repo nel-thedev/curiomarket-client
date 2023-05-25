@@ -29,12 +29,10 @@ const Item = () => {
 
   useEffect(() => {
     try {
-      axios
-        .get(`http://localhost:4000/item/details/${itemId}`)
-        .then((result) => {
-          setCurrentItem(result.data);
-          console.log(result.data);
-        });
+      get(`/item/details/${itemId}`).then((result) => {
+        setCurrentItem(result.data);
+        console.log(result.data);
+      });
     } catch (error) {
       console.log(error);
     }

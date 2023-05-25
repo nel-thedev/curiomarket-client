@@ -1,5 +1,7 @@
 import { createContext, useState } from 'react';
 import axios from 'axios';
+import { baseUrl } from '../services/baseUrl';
+import { get } from '../services/authService';
 
 const LoadingContext = createContext();
 
@@ -8,8 +10,7 @@ const LoadingProvider = ({ children }) => {
   const [currentStore, setCurrentStore] = useState({});
 
   const getStores = () => {
-    axios
-      .get('http://localhost:4000/store/all')
+    get('/store/all')
       .then((results) => {
         setStores(results.data);
       })
@@ -19,8 +20,7 @@ const LoadingProvider = ({ children }) => {
   };
 
   const getCurrentStore = (storeId) => {
-    axios
-      .get(`http://localhost:4000/store/shop/${storeId}`)
+    get(`/store/shop/${storeId}`)
       .then((results) => {
         console.log('STORE ID', results.data);
         setCurrentStore(results.data);
