@@ -23,6 +23,7 @@ const SeeCart = () => {
 
         {cart.length ? (
           cart.map((item) => {
+            console.log(item);
             return <ItemCard item={item} />;
           })
         ) : (
