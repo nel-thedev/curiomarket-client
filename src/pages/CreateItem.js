@@ -70,11 +70,11 @@ const CreateItem = ({ storeId }) => {
   return (
     <div
       className="p-1 d-flex flex-column justify-content-center align-items-center"
-      style={{ height: '85vh' }}
+      style={{ height: '' }}
     >
       <form
         onSubmit={handleSubmit}
-        className="d-flex flex-column justify-content-center align-items-center gap-3 w-75"
+        className="d-flex flex-column justify-content-center align-items-center gap-3 w-75 my-5"
       >
         <input
           type="file"
@@ -101,18 +101,26 @@ const CreateItem = ({ storeId }) => {
           className="form-control form-control-lg"
         />
         <br />
+        <label for="item-value" class="form-label">
+          Item Value
+        </label>
         <input
           type="number"
           name="value"
+          id="item-value"
           value={newItem.value}
           placeholder="Item value"
           onChange={handleChange}
           className="form-control form-control-lg"
         />
         <br />
+        <label for="item-qty" class="form-label">
+          Item Quantity
+        </label>
         <input
           type="number"
           name="quantity"
+          id="item-qty"
           value={newItem.quantity}
           placeholder="Item quantity"
           onChange={handleChange}
