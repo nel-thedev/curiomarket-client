@@ -13,15 +13,22 @@ const AllStores = () => {
   }, [stores]);
 
   return (
-    <>
-      {!stores.length ? (
-        <p>Loading...</p>
-      ) : (
-        stores.map((store) => {
-          return <StoreCard store={store} />;
-        })
-      )}
-    </>
+    <div className="container">
+      <h2 className="mt-4">All stores</h2>
+      <div className="row my-4">
+        {!stores.length ? (
+          <p>Loading...</p>
+        ) : (
+          stores.map((store) => {
+            return (
+              <div className="col-md-6 col-xl-4">
+                <StoreCard store={store} />
+              </div>
+            );
+          })
+        )}
+      </div>
+    </div>
   );
 };
 

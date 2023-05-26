@@ -40,14 +40,21 @@ const Signup = () => {
   };
 
   return (
-    <>
-      <form onSubmit={handleSubmit}>
+    <div
+      className="p-1 d-flex flex-column justify-content-center align-items-center"
+      style={{ height: '85vh' }}
+    >
+      <form
+        onSubmit={handleSubmit}
+        className="d-flex flex-column justify-content-center align-items-center gap-3 w-75"
+      >
         <input
           type="text"
           name="fullName"
           value={newUser.fullName}
           placeholder="Name"
           onChange={handleChange}
+          className="form-control form-control-lg"
         />
         <br />
         <input
@@ -56,6 +63,7 @@ const Signup = () => {
           value={newUser.email}
           placeholder="Email"
           onChange={handleChange}
+          className="form-control form-control-lg"
         />
         <br />
         <input
@@ -64,12 +72,15 @@ const Signup = () => {
           value={newUser.password}
           placeholder="Password"
           onChange={handleChange}
+          className="form-control form-control-lg"
         />
         <br />
-        <button type="submit">Join</button>
+        <button type="submit" className="btn btn-outline-primary px-5">
+          Join
+        </button>
       </form>
       {errorMsg && <p className="error-message">{errorMsg}</p>}
-    </>
+    </div>
   );
 };
 

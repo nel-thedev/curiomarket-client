@@ -14,7 +14,7 @@ const Home = () => {
           width: '100vw',
         }}
       >
-        <div className="d-flex flex-column justify-content-center gap-5 bg-white w-75 h-75 bg-opacity-75 border border-white border-3">
+        <div className="d-flex flex-column justify-content-center gap-5 bg-white w-75 h-75 bg-opacity-75 border border-white border-3 rounded-3">
           <h2>Start shopping!</h2>
           <Link to={'/store/all'}>
             <button className="btn btn-primary w-25">All stores</button>
@@ -29,7 +29,7 @@ const Home = () => {
         //   width: '100vw',
         // }}
       >
-        <div className="d-flex flex-column justify-content-center gap-5 bg-secondary w-75 h-75 bg-opacity-10 border border-gray border-3">
+        <div className="d-flex flex-column justify-content-center gap-5 bg-secondary w-75 h-75 bg-opacity-10 border border-gray border-3 rounded-3">
           <h2>Create an account and start selling!</h2>
           <Link to={'/auth/signup'}>
             <button className="btn btn-primary w-25">Join</button>

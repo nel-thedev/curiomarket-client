@@ -14,6 +14,7 @@ import EditStore from './pages/EditStore';
 import CreateItem from './pages/CreateItem';
 import SeeCart from './pages/SeeCart';
 import Checkout from './pages/OrderPreview';
+import Footer from './components/Footer';
 
 function App() {
   const getToken = () => {
@@ -31,7 +32,7 @@ function App() {
   return (
     <div className="App">
       <Navbar />
-      <div className="">
+      <>
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/store/all" element={<AllStores />} />
@@ -50,7 +51,9 @@ function App() {
           <Route path="/cart" element={<SeeCart />} />
           <Route path="/checkout" element={<Checkout />} />
         </Routes>
-      </div>
+      </>
+
+      <Footer />
     </div>
   );
 }
