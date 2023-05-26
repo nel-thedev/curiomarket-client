@@ -56,9 +56,20 @@ const CreateStore = () => {
   };
 
   return (
-    <>
-      <form onSubmit={handleSubmit}>
-        <input type="file" name="storeImage" onChange={handleFileChange} />
+    <div
+      className="p-1 d-flex flex-column justify-content-center align-items-center"
+      style={{ height: '85vh' }}
+    >
+      <form
+        onSubmit={handleSubmit}
+        className="d-flex flex-column justify-content-center align-items-center gap-3 w-75"
+      >
+        <input
+          type="file"
+          name="storeImage"
+          onChange={handleFileChange}
+          className="form-control form-control-lg"
+        />
         <br />
         <input
           type="text"
@@ -66,6 +77,7 @@ const CreateStore = () => {
           value={createdStore.name}
           placeholder="Store name"
           onChange={handleChange}
+          className="form-control form-control-lg"
         />
         <br />
         <input
@@ -74,13 +86,16 @@ const CreateStore = () => {
           value={createdStore.description}
           placeholder="Store description"
           onChange={handleChange}
+          className="form-control form-control-lg"
         />
         <br />
 
-        <button type="submit">Create</button>
+        <button type="submit" className="btn btn-outline-primary px-5">
+          Create
+        </button>
       </form>
       {errorMsg && <p className="error-message">{errorMsg}</p>}
-    </>
+    </div>
   );
 };
 

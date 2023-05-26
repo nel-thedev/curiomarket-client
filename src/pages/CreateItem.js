@@ -16,7 +16,7 @@ const CreateItem = ({ storeId }) => {
     quantity: 0,
     imageUrl: '',
     value: 999,
-    isForSale: false,
+    isForSale: true,
   });
 
   const navigate = useNavigate();
@@ -68,9 +68,20 @@ const CreateItem = ({ storeId }) => {
   };
 
   return (
-    <>
-      <form onSubmit={handleSubmit}>
-        <input type="file" name="imageUrl" onChange={handleFileChange} />
+    <div
+      className="p-1 d-flex flex-column justify-content-center align-items-center"
+      style={{ height: '85vh' }}
+    >
+      <form
+        onSubmit={handleSubmit}
+        className="d-flex flex-column justify-content-center align-items-center gap-3 w-75"
+      >
+        <input
+          type="file"
+          name="imageUrl"
+          onChange={handleFileChange}
+          className="form-control form-control-lg"
+        />
         <br />
         <input
           type="text"
@@ -78,6 +89,7 @@ const CreateItem = ({ storeId }) => {
           value={newItem.name}
           placeholder="Item name"
           onChange={handleChange}
+          className="form-control form-control-lg"
         />
         <br />
         <input
@@ -86,6 +98,7 @@ const CreateItem = ({ storeId }) => {
           value={newItem.description}
           placeholder="Item description"
           onChange={handleChange}
+          className="form-control form-control-lg"
         />
         <br />
         <input
@@ -94,6 +107,7 @@ const CreateItem = ({ storeId }) => {
           value={newItem.value}
           placeholder="Item value"
           onChange={handleChange}
+          className="form-control form-control-lg"
         />
         <br />
         <input
@@ -102,9 +116,12 @@ const CreateItem = ({ storeId }) => {
           value={newItem.quantity}
           placeholder="Item quantity"
           onChange={handleChange}
+          className="form-control form-control-lg"
         />
         <br />
-        <label for="isForSale">Is the item for sale?</label>
+        <label class="form-check-label" for="isForSale">
+          Is the item for sale?
+        </label>
         <input
           type="checkbox"
           id="isForSale"
@@ -112,13 +129,16 @@ const CreateItem = ({ storeId }) => {
           value={newItem.isForSale}
           placeholder="Is the item for sale?"
           onChange={handleChange}
+          class="form-check-input"
         />
         <br />
 
-        <button type="submit">Create</button>
+        <button type="submit" className="btn btn-outline-primary px-5">
+          Create
+        </button>
       </form>
       {errorMsg && <p className="error-message">{errorMsg}</p>}
-    </>
+    </div>
   );
 };
 
