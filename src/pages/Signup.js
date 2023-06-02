@@ -20,11 +20,9 @@ const Signup = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(e);
 
     post('/auth/signup', newUser)
       .then((result) => {
-        console.log('CREATED USER', result);
         setUser({ ...result.data.user, profilePicture: '' });
         storeToken(result.data.authToken);
         navigate('/profile');

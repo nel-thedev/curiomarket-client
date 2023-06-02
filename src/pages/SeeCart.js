@@ -57,7 +57,6 @@ const SeeCart = () => {
         <div className="row my-5 px-3">
           {cart.length ? (
             cart.map((item) => {
-              console.log(item);
               return (
                 <div className="col-md-6">
                   <ItemCard item={item} />

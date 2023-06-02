@@ -26,7 +26,6 @@ const Login = () => {
 
     post('/auth/login', thisUser)
       .then((results) => {
-        console.log('LOGIN', results.data);
         storeToken(results.data.authToken);
         setUser(results.data.user);
         navigate('/profile');

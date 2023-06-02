@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 import box from '../assets/box.png';
 
 const ItemCard = ({ item }) => {
-  console.log(item);
   return (
     <Link
       to={`/item/details/${item._id}`}

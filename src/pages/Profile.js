@@ -5,7 +5,6 @@ import { Link } from 'react-router-dom';
 
 const Profile = () => {
   const { user, authenticateUser } = useContext(AuthContext);
-  console.log(user);
 
   // useEffect(() => {
   //   authenticateUser();

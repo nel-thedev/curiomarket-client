@@ -26,7 +26,6 @@ const CreateStore = () => {
   const handleFileChange = (e) => {
     fileChange(e)
       .then((response) => {
-        console.log('RESPONSE DATA', response.data);
         setCreatedStore((prev) => ({
           ...prev,
           [e.target.name]: response.data.image,
@@ -37,14 +36,11 @@ const CreateStore = () => {
       });
   };
 
-  console.log(createdStore);
-
   const handleSubmit = (e) => {
     e.preventDefault();
 
     post('/store/create', createdStore)
       .then((results) => {
-        console.log('CREATE STORE RESULTS', results.data);
         setCurrentStore(createdStore);
         setUser(results.data.updatedUser);
         navigate(`/store/shop/${results.data.createdStore._id}`);

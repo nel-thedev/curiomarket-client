@@ -4,7 +4,6 @@ import StoreCard from '../components/StoreCard';
 
 const AllStores = () => {
   const { stores, getStores } = useContext(LoadingContext);
-  console.log(stores);
 
   useEffect(() => {
     if (!stores.length) {

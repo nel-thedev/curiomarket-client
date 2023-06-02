@@ -19,7 +19,6 @@ const UpdateProfile = () => {
   const handleFileChange = (e) => {
     fileChange(e)
       .then((response) => {
-        console.log('RESPONSE DATA', response.data);
         setUpdatedUser((prev) => ({
           ...prev,
           [e.target.name]: response.data.image,
@@ -35,7 +34,6 @@ const UpdateProfile = () => {
 
     post('/user/update', updatedUser)
       .then((results) => {
-        console.log('UPDATE RESULTS', results.data);
         storeToken(results.data.authToken);
         setUser(results.data.user);
         navigate('/profile');

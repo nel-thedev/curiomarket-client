@@ -22,7 +22,6 @@ const LoadingProvider = ({ children }) => {
   const getCurrentStore = (storeId) => {
     get(`/store/shop/${storeId}`)
       .then((results) => {
-        console.log('STORE ID', results.data);
         setCurrentStore(results.data);
       })
       .catch((err) => console.log(err));

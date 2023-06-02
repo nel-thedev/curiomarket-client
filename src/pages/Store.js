@@ -11,11 +11,9 @@ const Store = () => {
   const { user } = useContext(AuthContext);
 
   const { storeId } = useParams();
-  console.log(storeId);
 
   useEffect(() => {
     getCurrentStore(storeId);
-    console.log('CURRENT STORE', currentStore);
   }, [storeId]);
 
   return (

@@ -36,10 +36,8 @@ const EditStore = ({ storeId }) => {
 
     post(`/store/edit/${currentStore._id}`, updatedStore)
       .then((results) => {
-        console.log('UPDATE RESULTS', results.data.updatedUser);
         setCurrentStore(updatedStore);
         setUser(results.data.updatedUser);
-        console.log(user);
         navigate(`/store/shop/${currentStore._id}`);
       })
       .catch((err) => {

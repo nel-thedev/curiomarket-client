@@ -14,15 +14,12 @@ const Item = () => {
   const [currentItem, setCurrentItem] = useState({});
   const navigate = useNavigate();
 
-  console.log(itemId);
-
   const handleClickCart = () => {
     addToCart(currentItem);
   };
 
   const deleteItem = () => {
     get(`/item/delete/${itemId}`).then((result) => {
-      console.log(result);
       navigate(`/store/shop/${result.data.store}`);
     });
   };
@@ -31,7 +28,6 @@ const Item = () => {
     try {
       get(`/item/details/${itemId}`).then((result) => {
         setCurrentItem(result.data);
-        console.log(result.data);
       });
     } catch (error) {
       console.log(error);

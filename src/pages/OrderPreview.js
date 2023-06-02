@@ -19,16 +19,9 @@ export default function Checkout() {
     const storedCart = localStorage.getItem('shoppingCart');
 
     const cart = JSON.parse(storedCart);
-    console.log('CART', cart);
-
-    // cart.map((item) => {
-    //   {name, description, imageUrl, quantity, value} = item
-    //   return
-    // })
 
     post('/checkout/create-checkout-session', cart)
       .then((response) => {
-        console.log('RESPONSEDATA', response.data);
         window.location = response.data.url;
       })
       .catch((err) => console.log(err));
