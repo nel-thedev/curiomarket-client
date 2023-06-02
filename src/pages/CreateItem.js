@@ -112,6 +112,7 @@ const CreateItem = ({ storeId }) => {
           placeholder="Item value"
           onChange={handleChange}
           className="form-control form-control-lg"
+          min="1"
         />
         <br />
         <label for="item-qty" class="form-label">
@@ -125,6 +126,7 @@ const CreateItem = ({ storeId }) => {
           placeholder="Item quantity"
           onChange={handleChange}
           className="form-control form-control-lg"
+          min="1"
         />
         <br />
         <label class="form-check-label" for="isForSale">
