@@ -1,70 +1,33 @@
-# Getting Started with Create React App
+# Curiomarket Marketplace Web App - Frontend
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This repository contains the frontend component of a web application built using React. The app is a marketplace where users can create an account, create stores, and add items for sale. Other users can browse the stores, add items to their cart, and complete the checkout process using the Stripe API for payments.
 
-## Available Scripts
+## Features
 
-In the project directory, you can run:
+- User registration and authentication: Users can create an account and log in to the application.
+- Store creation: Users can create their own stores where they can add items for sale.
+- Item management: Users can add items to their stores with details such as name, picture (using Cloudinary), description, and more.
+- Cart functionality: Users can add items from different stores to their cart.
+- Checkout: Users can proceed to checkout and complete the payment process using the Stripe API.
 
-### `npm start`
+## Technologies Used
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+The frontend of this web app is built using the following technologies and libraries:
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- React: A popular JavaScript library for building user interfaces.
+- React Router: A library for handling routing in React applications.
+- Axios: A promise-based HTTP client for making API requests.
+- Stripe API: A secure and reliable API for processing payments.
+- Cloudinary: A cloud-based image and video management service for storing and serving images.
 
-### `npm test`
+## Contributing
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+If you would like to contribute to this project, you can follow these steps:
 
-### `npm run build`
+1. Fork the repository on GitHub.
+2. Create a new branch with a descriptive name.
+3. Make your changes and commit them to your branch.
+4. Push your changes to your forked repository.
+5. Submit a pull request describing your changes.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
