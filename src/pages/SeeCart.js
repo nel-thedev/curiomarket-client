@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { CartContext } from '../context/cart';
 import ItemCard from '../components/ItemCard';
-import { Link } from 'react-router-dom';
+import { Link, Navigate } from 'react-router-dom';
 import { post } from '../services/authService';
 
 const SeeCart = () => {
@@ -35,12 +35,15 @@ const SeeCart = () => {
     const query = new URLSearchParams(window.location.search);
 
     if (query.get('success')) {
-      setMessage('Order placed! You will receive an email confirmation.');
+      setMessage(
+        'Order placed! You will receive an email confirmation soon. ✅'
+      );
+      clearCart();
     }
 
     if (query.get('canceled')) {
       setMessage(
-        "Order canceled -- continue to shop around and checkout when you're ready."
+        "Order canceled -- continue to shop around and checkout when you're ready. 🛍️"
       );
     }
   }, []);
@@ -50,6 +53,11 @@ const SeeCart = () => {
       <div className="col-md-8 col-xl-10">
         <h2>Shopping Cart</h2>
 
+        {message ? (
+          <p className="text-center fw-bold my-5">{message}</p>
+        ) : (
+          <></>
+        )}
         <button onClick={() => clearCart()} className="btn btn-danger">
           Clear Cart
         </button>
@@ -69,7 +77,6 @@ const SeeCart = () => {
         </div>
       </div>
       <div className="col-md-4 col-xl-2 bg-secondary bg-opacity-10 py-3 rounded-3">
-        {message ? <p>{message}</p> : <></>}
         <h3>Checkout</h3>
         <div>
           <p className="mt-4">Total:</p>
